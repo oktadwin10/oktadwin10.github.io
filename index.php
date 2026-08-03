@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Okta Dwi Nurmansyah</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0a0a0a',
+                        cardBg: '#141414',
+                        accentRed: '#ef4444',
+                        accentRedHover: '#dc2626',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar untuk galeri gambar horizontal */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #1f1f1f;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #ef4444;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-white font-sans antialiased selection:bg-red-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 w-full bg-darkBg/90 backdrop-blur-md border-b border-neutral-800 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-bold text-xl text-white tracking-wider">Portofolio<span class="text-accentRed">.</span></a>
+            <div class="space-x-6 text-sm font-medium text-neutral-300">
+                <a href="#about" class="hover:text-accentRed transition">Tentang</a>
+                <a href="#portfolio" class="hover:text-accentRed transition">Portofolio</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Profil Singkat) -->
+    <section id="about" class="pt-36 pb-24 px-6 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+        <div class="w-64 md:w-80 h-auto flex-shrink-0 flex justify-center">
+            <img src="assets/profil.png" alt="Foto Profil" class="w-full h-auto max-h-[450px] object-contain">
+        </div>
+        <div class="text-center md:text-left">
+            <span class="bg-red-500/10 text-accentRed text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider border border-red-500/20">Halo, Nama Saya</span>
+            <h1 class="text-4xl md:text-5xl font-extrabold mt-3 mb-4 text-white tracking-tight">Okta Dwi Nurmansyah</h1>
+            <p class="text-neutral-400 text-lg leading-relaxed max-w-xl">
+                Seorang lulusan Program studi Sistem Informasi STIMIK Tunas Bangsa Banjarnegara
+            </p>
+            <div class="mt-8 space-x-4">
+                <a href="#portfolio" class="bg-accentRed text-white px-6 py-3 rounded-xl font-medium shadow-lg shadow-red-600/20 hover:bg-accentRedHover transition inline-block">Lihat Projek</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section (Tampilan Projek Lebih Besar & Detail) -->
+    <section id="portfolio" class="py-24 bg-neutral-950 px-6 border-t border-neutral-900">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Galeri Projek</h2>
+                <p class="text-neutral-400 mt-3 max-w-2xl mx-auto">Detail sistem dan aplikasi yang telah dikembangkan secara komprehensif. Geser gambar untuk melihat pratinjau antarmuka.</p>
+            </div>
+
+            <!-- List Projek (Format Card Lebar) -->
+            <div class="space-y-12">
+                
+                <!-- Card Projek 1 -->
+                <div class="bg-cardBg border border-neutral-800 rounded-2xl overflow-hidden shadow-2xl hover:border-neutral-700 transition grid grid-cols-1 lg:grid-cols-12 gap-0">
+                    <!-- Container Gambar (Lebar 7/12 di Desktop) -->
+                    <div class="lg:col-span-7 relative bg-neutral-900 flex flex-col justify-center">
+                        <div class="flex overflow-x-auto snap-x snap-mandatory custom-scrollbar w-full h-72 md:h-96">
+                            <div class="w-full flex-shrink-0 snap-center p-2 flex items-center justify-center">
+                                <img src="assets/1.1.png" alt="SPK Pakan Kucing - Tampilan 1" class="w-full h-full object-contain rounded-lg">
+                            </div>
+                            <div class="w-full flex-shrink-0 snap-center p-2 flex items-center justify-center">
+                                <img src="assets/1.2.png" alt="SPK Pakan Kucing - Tampilan 2" class="w-full h-full object-contain rounded-lg">
+                            </div>
+                            <div class="w-full flex-shrink-0 snap-center p-2 flex items-center justify-center">
+                                <img src="assets/1.3.png" alt="SPK Pakan Kucing - Tampilan 3" class="w-full h-full object-contain rounded-lg">
+                            </div>
+                        </div>
+                        <div class="bg-neutral-950/80 px-4 py-2 border-t border-neutral-800 flex justify-between items-center text-xs text-neutral-400">
+                            <span>Pratinjau Antarmuka</span>
+                            <span class="text-accentRed font-medium">Geser Gambar ➔</span>
+                        </div>
+                    </div>
+
+                    <!-- Container Info & Deskripsi (Lebar 5/12 di Desktop) -->
+                    <div class="lg:col-span-5 p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-neutral-800">
+                        <div>
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-xs font-semibold text-accentRed bg-red-500/10 px-3 py-1 rounded-md border border-red-500/20">Sistem Pendukung Keputusan</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-3">SPK Penentu Pakan Kucing Tua</h3>
+                            <p class="text-neutral-300 text-sm leading-relaxed mb-4">
+                                Aplikasi berbasis web yang merekomendasikan jenis pakan terbaik untuk kucing senior berdasarkan kondisi kesehatan, usia, dan nutrisi khusus yang dibutuhkan.
+                            </p>
+                            
+                            <!-- Detail Fitur Utama -->
+                            <div class="space-y-2 mb-6">
+                                <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400">Fitur Utama:</h4>
+                                <ul class="text-xs text-neutral-300 space-y-1.5 list-disc list-inside">
+                                    <li>Perhitungan kriteria nutrisi & kondisi kesehatan otomatis</li>
+                                    <li>Peringkat pakan terbaik berdasarkan pembobotan</li>
+                                    <li>Manajemen data pakan dan kriteria oleh admin</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">Teknologi:</h4>
+                            <div class="flex wrap gap-2 pt-1 border-t border-neutral-800">
+                            <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">JavaScript</span>
+                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">Tailwind CSS</span>
+                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">MySQL</span>
+                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">PHP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Projek 2 -->
+                <div class="bg-cardBg border border-neutral-800 rounded-2xl overflow-hidden shadow-2xl hover:border-neutral-700 transition grid grid-cols-1 lg:grid-cols-12 gap-0">
+                    <div class="lg:col-span-7 relative bg-neutral-900 flex flex-col justify-center">
+                        <div class="flex overflow-x-auto snap-x snap-mandatory custom-scrollbar w-full h-72 md:h-96">
+                            <div class="w-full flex-shrink-0 snap-center p-2 flex items-center justify-center">
+                                <img src="assets/2.1.png" alt="Sistem Pakar - Tampilan 1" class="w-full h-full object-contain rounded-lg">
+                            </div>
+                            <div class="w-full flex-shrink-0 snap-center p-2 flex items-center justify-center">
+                                <img src="assets/2.2.png" alt="Sistem Pakar - Tampilan 2" class="w-full h-full object-contain rounded-lg">
+                            </div>
+                            <div class="w-full flex-shrink-0 snap-center p-2 flex items-center justify-center">
+                                <img src="assets/2.3.png" alt="Sistem Pakar - Tampilan 3" class="w-full h-full object-contain rounded-lg">
+                            </div>
+                        </div>
+                        <div class="bg-neutral-950/80 px-4 py-2 border-t border-neutral-800 flex justify-between items-center text-xs text-neutral-400">
+                            <span>Pratinjau Antarmuka</span>
+                            <span class="text-accentRed font-medium">Geser Gambar ➔</span>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-neutral-800">
+                        <div>
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-xs font-semibold text-accentRed bg-red-500/10 px-3 py-1 rounded-md border border-red-500/20">Sistem Pakar</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-3">Deteksi Gangguan Belajar Anak</h3>
+                            <p class="text-neutral-300 text-sm leading-relaxed mb-4">
+                                Sistem pakar cerdas yang dirancang untuk membantu mengidentifikasi indikasi awal gangguan belajar pada anak (seperti disleksia, diskalkulia, atau ADHD) berdasarkan gejala yang diamati.
+                            </p>
+                            
+                            <div class="space-y-2 mb-6">
+                                <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400">Fitur Utama:</h4>
+                                <ul class="text-xs text-neutral-300 space-y-1.5 list-disc list-inside">
+                                    <li>Kuesioner diagnosis interaktif berbasis indikator perilaku</li>
+                                    <li>Kalkulasi tingkat kepastian/probabilitas hasil diagnosis</li>
+                                    <li>Laporan hasil analisa beserta saran atau rekomendasi penanganan awal</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">Teknologi:</h4>
+                            <div class="flex wrap gap-2 pt-1 border-t border-neutral-800">
+                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">JavaScript</span>
+                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">Tailwind CSS</span>
+                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">PHP</span>
+                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">MySQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Projek 3 -->
+                <div class="bg-cardBg border border-neutral-800 rounded-2xl overflow-hidden shadow-2xl hover:border-neutral-700 transition grid grid-cols-1 lg:grid-cols-12 gap-0">
+                    <div class="lg:col-span-7 relative bg-neutral-900 flex flex-col justify-center">
+                        <div class="flex overflow-x-auto snap-x snap-mandatory custom-scrollbar w-full h-72 md:h-96">
+                            <div class="w-full flex-shrink-0 snap-center p-2 flex items-center justify-center">
+                                <img src="assets/3.1.png" alt="SPK Bantuan Posyandu - Tampilan 1" class="w-full h-full object-contain rounded-lg">
+                            </div>
+                            <div class="w-full flex-shrink-0 snap-center p-2 flex items-center justify-center">
+                                <img src="assets/3.2.png" alt="SPK Bantuan Posyandu - Tampilan 2" class="w-full h-full object-contain rounded-lg">
+                            </div>
+                            <div class="w-full flex-shrink-0 snap-center p-2 flex items-center justify-center">
+                                <img src="assets/3.3.png" alt="SPK Bantuan Posyandu - Tampilan 3" class="w-full h-full object-contain rounded-lg">
+                            </div>
+                        </div>
+                        <div class="bg-neutral-950/80 px-4 py-2 border-t border-neutral-800 flex justify-between items-center text-xs text-neutral-400">
+                            <span>Pratinjau Antarmuka</span>
+                            <span class="text-accentRed font-medium">Geser Gambar ➔</span>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-neutral-800">
+                        <div>
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-xs font-semibold text-accentRed bg-red-500/10 px-3 py-1 rounded-md border border-red-500/20">Sistem Pendukung Keputusan</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-3">SPK Kelayakan Bantuan Posyandu</h3>
+                            <p class="text-neutral-300 text-sm leading-relaxed mb-4">
+                                Aplikasi SPK mengimplementasikan metode SAW (Simple Additive Weighting) untuk menentukan kelayakan dan prioritas penerima bantuan operasional atau insentif Posyandu secara obyektif.
+                            </p>
+                            
+                            <div class="space-y-2 mb-6">
+                                <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400">Fitur Utama:</h4>
+                                <ul class="text-xs text-neutral-300 space-y-1.5 list-disc list-inside">
+                                    <li>Perhitungan matriks keputusan & normalisasi SAW</li>
+                                    <li>Pemeringkatan otomatis penerima kelayakan bantuan</li>
+                                    <li>Cetak laporan dan ekspor hasil analisis</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">Teknologi:</h4>
+                            <div class="flex wrap gap-2 pt-1 border-t border-neutral-800">
+                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">JavaScript</span>
+                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">Tailwind CSS</span>
+                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">MySQL</span>
+                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">PHP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Projek 4 -->
+                <div class="bg-cardBg border border-neutral-800 rounded-2xl overflow-hidden shadow-2xl hover:border-neutral-700 transition grid grid-cols-1 lg:grid-cols-12 gap-0">
+                    <div class="lg:col-span-7 relative bg-neutral-900 flex flex-col justify-center">
+                        <div class="flex overflow-x-auto snap-x snap-mandatory custom-scrollbar w-full h-72 md:h-96">
+                            <div class="w-full flex-shrink-0 snap-center p-2 flex items-center justify-center">
+                                <img src="assets/4.1.png" alt="Monitoring Siswa - Tampilan 1" class="w-full h-full object-contain rounded-lg">
+                            </div>
+                            <div class="w-full flex-shrink-0 snap-center p-2 flex items-center justify-center">
+                                <img src="assets/4.2.png" alt="Monitoring Siswa - Tampilan 2" class="w-full h-full object-contain rounded-lg">
+                            </div>
+                            <div class="w-full flex-shrink-0 snap-center p-2 flex items-center justify-center">
+                                <img src="assets/4.3.png" alt="Monitoring Siswa - Tampilan 3" class="w-full h-full object-contain rounded-lg">
+                            </div>
+                        </div>
+                        <div class="bg-neutral-950/80 px-4 py-2 border-t border-neutral-800 flex justify-between items-center text-xs text-neutral-400">
+                            <span>Pratinjau Antarmuka</span>
+                            <span class="text-accentRed font-medium">Geser Gambar ➔</span>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-neutral-800">
+                        <div>
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-xs font-semibold text-accentRed bg-red-500/10 px-3 py-1 rounded-md border border-red-500/20">Web Application</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-3">Sistem Informasi Monitoring Siswa</h3>
+                            <p class="text-neutral-300 text-sm leading-relaxed mb-4">
+                                Platform manajemen sekolah untuk memantau rekam kehadiran, perkembangan akademik maupun non akademik, hingga catatan kedisiplinan dan perilaku siswa disekolah secara akurat dan real-time.
+                            </p>
+                            
+                            <div class="space-y-2 mb-6">
+                                <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400">Fitur Utama:</h4>
+                                <ul class="text-xs text-neutral-300 space-y-1.5 list-disc list-inside">
+                                    <li>Dashboard analitik perkembangan siswa</li>
+                                    <li>Manajemen rekap presensi dan absensi</li>
+                                    <li>Portal grup untuk Kepala Sekolah, Guru, Admin, dan Orang Tua</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">Teknologi:</h4>
+                            <div class="flex wrap gap-2 pt-1 border-t border-neutral-800">
+                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">JavaScript</span>
+                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">Tailwind CSS</span>
+                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">PHP</span>
+                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">MySQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
