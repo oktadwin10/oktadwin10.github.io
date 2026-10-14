@@ -14,6 +14,7 @@
                     colors: {
                         darkBg: '#0a0a0a',
                         cardBg: '#141414',
+                        cardHover: '#1c1c1c',
                         accentRed: '#ef4444',
                         accentRedHover: '#dc2626',
                     }
@@ -22,7 +23,6 @@
         }
     </script>
     <style>
-        /* Custom scrollbar untuk galeri gambar horizontal */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -46,114 +46,162 @@
 <body class="bg-darkBg text-white font-sans antialiased selection:bg-red-500 selection:text-white">
 
     <!-- Navbar -->
-    <nav class="fixed top-0 left-0 w-full bg-darkBg/90 backdrop-blur-md border-b border-neutral-800 z-50">
+    <nav class="fixed top-0 left-0 w-full bg-darkBg/90 backdrop-blur-md border-b border-neutral-800/80 z-50 transition-all">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="font-bold text-xl text-white tracking-wider">Portofolio<span class="text-accentRed">.</span></a>
-            <div class="space-x-6 text-sm font-medium text-neutral-300">
+            <a href="#" class="font-extrabold text-xl text-white tracking-wider flex items-center gap-1">
+                Okta<span class="text-accentRed">Dwi Nurmansyah</span>
+            </a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-neutral-300">
                 <a href="#about" class="hover:text-accentRed transition">Tentang</a>
+                <a href="#skills" class="hover:text-accentRed transition">Keahlian</a>
                 <a href="#portfolio" class="hover:text-accentRed transition">Portofolio</a>
+                <a href="#experience" class="hover:text-accentRed transition">Pengalaman & Studi</a>
             </div>
+            <div>
+                <a href="https://wa.me/6283127592890" target="_blank" class="hidden sm:inline-block bg-accentRed/10 border border-accentRed/30 text-accentRed text-xs font-semibold px-4 py-2 rounded-xl hover:bg-accentRed hover:text-white transition shadow-lg shadow-red-500/10">Hubungi Saya</a>
+                <!-- Mobile Hamburger Button -->
+                <button id="menu-btn" class="md:hidden text-neutral-300 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-darkBg border-b border-neutral-800 px-6 py-4 space-y-3">
+            <a href="#about" class="block text-neutral-300 hover:text-accentRed transition">Tentang</a>
+            <a href="#skills" class="block text-neutral-300 hover:text-accentRed transition">Keahlian</a>
+            <a href="#portfolio" class="block text-neutral-300 hover:text-accentRed transition">Portofolio</a>
+            <a href="#experience" class="block text-neutral-300 hover:text-accentRed transition">Pengalaman & Studi</a>
+            <a href="#contact" class="block text-neutral-300 hover:text-accentRed transition">Hubungi Saya</a>
         </div>
     </nav>
 
-    <!-- Hero Section (Profil Singkat) -->
-    <section id="about" class="pt-36 pb-24 px-6 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
-        <div class="w-64 md:w-80 h-auto flex-shrink-0 flex justify-center">
-            <img src="assets/profil.png" alt="Foto Profil" class="w-full h-auto max-h-[450px] object-contain">
+    <!-- Hero Section -->
+    <section id="about" class="pt-40 pb-28 px-6 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+        <div class="w-64 md:w-80 h-auto flex-shrink-0 flex justify-center relative">
+            <div class="absolute inset-0 bg-gradient-to-tr from-red-600/20 to-transparent rounded-3xl blur-2xl"></div>
+            <img src="assets/profil.png" alt="Foto Profil" class="relative w-full h-auto max-h-[420px] object-contain rounded-2xl border border-neutral-800 bg-neutral-900/50 shadow-2xl">
         </div>
         <div class="text-center md:text-left">
-            <span class="bg-red-500/10 text-accentRed text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider border border-red-500/20">Halo, Nama Saya</span>
-            <h1 class="text-4xl md:text-5xl font-extrabold mt-3 mb-4 text-white tracking-tight">Okta Dwi Nurmansyah</h1>
-            <p class="text-neutral-400 text-lg leading-relaxed max-w-xl">
-                Seorang lulusan Program Studi Sistem Informasi STIMIK Tunas Bangsa Banjarnegara
+            <h1 class="text-4xl md:text-6xl font-black mt-1 mb-4 text-white tracking-tight">
+                Okta Dwi Nurmansyah<span class="text-accentRed">.</span>
+            </h1>
+            <p class="text-neutral-300 text-lg leading-relaxed max-w-xl mb-6">
+                Lulusan S1 Sistem Informasi <span class="text-white font-semibold">STIMIK Tunas Bangsa Banjarnegara</span> (IPK 3.71) Berpengalaman pada pengembangan aplikasi web interaktif, sistem pendukung keputusan, dan antarmuka modern.
             </p>
-            <div class="mt-8 space-x-4">
-                <a href="#portfolio" class="bg-accentRed text-white px-6 py-3 rounded-xl font-medium shadow-lg shadow-red-600/20 hover:bg-accentRedHover transition inline-block">Lihat Projek</a>
+            <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                <a href="#portfolio" class="bg-accentRed text-white px-7 py-3.5 rounded-xl font-medium shadow-xl shadow-red-600/20 hover:bg-accentRedHover transition flex items-center gap-2">
+                    <span>Jelajahi Projek</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </a>
+                <a href="#contact" class="bg-neutral-900 border border-neutral-800 text-neutral-300 px-7 py-3.5 rounded-xl font-medium hover:border-neutral-700 hover:text-white transition">
+                    Kontak Saya
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Section (Tampilan Projek Lebih Besar & Detail) -->
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-neutral-950/50 border-t border-neutral-900 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-14">
+                <h2 class="text-3xl font-bold tracking-tight text-white">Keahlian & Teknologi</h2>
+                <p class="text-neutral-400 text-sm mt-2">Tools dan bahasa yang biasa digunakan dalam membangun solusi digital.</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4">
+                <!-- PHP -->
+                <div class="bg-neutral-900/60 border border-neutral-800 p-5 rounded-2xl hover:border-neutral-600 transition group w-full sm:w-[180px] flex flex-col items-center text-center">
+                    <div class="w-10 h-10 mb-3 text-neutral-300 group-hover:text-white group-hover:scale-110 transition flex items-center justify-center">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-sm text-white">PHP</h3>
+                    <p class="text-xs text-neutral-400 mt-1">Backend Dev</p>
+                </div>
+    
+                <!-- JavaScript -->
+                <div class="bg-neutral-900/60 border border-neutral-800 p-5 rounded-2xl hover:border-neutral-600 transition group w-full sm:w-[180px] flex flex-col items-center text-center">
+                    <div class="w-10 h-10 mb-3 text-neutral-300 group-hover:text-white group-hover:scale-110 transition flex items-center justify-center">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-sm text-white">JavaScript</h3>
+                    <p class="text-xs text-neutral-400 mt-1">Interactivity</p>
+                </div>
+    
+                <!-- Bootstrap -->
+                <div class="bg-neutral-900/60 border border-neutral-800 p-5 rounded-2xl hover:border-neutral-600 transition group w-full sm:w-[180px] flex flex-col items-center text-center">
+                    <div class="w-10 h-10 mb-3 text-neutral-300 group-hover:text-white group-hover:scale-110 transition flex items-center justify-center">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a5 5 0 015 5 5 5 0 01-2 4 5 5 0 013 5 4 4 0 01-4 4H7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-sm text-white">Bootstrap</h3>
+                    <p class="text-xs text-neutral-400 mt-1">Styling</p>
+                </div>
+    
+                <!-- MySQL -->
+                <div class="bg-neutral-900/60 border border-neutral-800 p-5 rounded-2xl hover:border-neutral-600 transition group w-full sm:w-[180px] flex flex-col items-center text-center">
+                    <div class="w-10 h-10 mb-3 text-neutral-300 group-hover:text-white group-hover:scale-110 transition flex items-center justify-center">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-sm text-white">MySQL</h3>
+                    <p class="text-xs text-neutral-400 mt-1">Database</p>
+                </div>
+    
+                <!-- Figma & UI/UX -->
+                <div class="bg-neutral-900/60 border border-neutral-800 p-5 rounded-2xl hover:border-neutral-600 transition group w-full sm:w-[180px] flex flex-col items-center text-center">
+                    <div class="w-10 h-10 mb-3 text-neutral-300 group-hover:text-white group-hover:scale-110 transition flex items-center justify-center">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18zM12 8a4 4 0 100 8 4 4 0 000-8z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-sm text-white">Figma & UI/UX</h3>
+                    <p class="text-xs text-neutral-400 mt-1">Design Mockup</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Portfolio Section -->
     <section id="portfolio" class="py-24 bg-neutral-950 px-6 border-t border-neutral-900">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Galeri Projek</h2>
-                <p class="text-neutral-400 mt-3 max-w-2xl mx-auto">Detail sistem dan aplikasi yang telah dikembangkan secara komprehensif. Geser gambar untuk melihat pratinjau antarmuka.</p>
+            <div class="text-center mb-12">
+                <span class="text-xs font-semibold uppercase tracking-wider text-accentRed">Karya & Projek Pilihan</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight mt-1">Galeri Projek Sistem</h2>
+                <p class="text-neutral-400 mt-2 max-w-2xl mx-auto text-sm">Detail aplikasi dan sistem informasi komprehensif. Geser slider gambar atau klik untuk memperbesar.</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-2 mb-12">
+                <button onclick="filterProjects('all')" class="filter-btn active-filter px-4 py-2 rounded-xl text-xs font-medium bg-accentRed text-white transition">Semua Projek</button>
+                <button onclick="filterProjects('spk')" class="filter-btn px-4 py-2 rounded-xl text-xs font-medium bg-neutral-900 text-neutral-300 hover:bg-neutral-800 transition">Sistem Pendukung Keputusan</button>
+                <button onclick="filterProjects('pakar')" class="filter-btn px-4 py-2 rounded-xl text-xs font-medium bg-neutral-900 text-neutral-300 hover:bg-neutral-800 transition">Sistem Pakar</button>
+                <button onclick="filterProjects('webapp')" class="filter-btn px-4 py-2 rounded-xl text-xs font-medium bg-neutral-900 text-neutral-300 hover:bg-neutral-800 transition">Web Application</button>
             </div>
 
             <!-- List Projek (Format Card Lebar) -->
-            <div class="space-y-12">
-                
-                <!-- Card Projek 1 -->
-                <div class="bg-cardBg border border-neutral-800 rounded-2xl overflow-hidden shadow-2xl hover:border-neutral-700 transition grid grid-cols-1 lg:grid-cols-12 gap-0">
-                    <!-- Container Gambar (Lebar 7/12 di Desktop) -->
+            <div id="project-container" class="space-y-12">
+
+                <!-- Card Projek 2 (Pakar) -->
+                <div class="project-card bg-cardBg border border-neutral-800 rounded-3xl overflow-hidden shadow-2xl hover:border-neutral-700 transition grid grid-cols-1 lg:grid-cols-12 gap-0" data-category="pakar">
                     <div class="lg:col-span-7 relative bg-neutral-900 flex flex-col justify-center">
                         <div class="flex overflow-x-auto snap-x snap-mandatory custom-scrollbar w-full h-72 md:h-96">
-                            <div class="w-full flex-shrink-0 snap-center p-2 flex items-center justify-center">
-                                <img src="assets/1.1.png" alt="SPK Pakan Kucing - Tampilan 1" class="w-full h-full object-contain rounded-lg">
+                            <div class="w-full flex-shrink-0 snap-center p-3 flex items-center justify-center cursor-pointer" onclick="openModal('assets/2.1.png')">
+                                <img src="assets/2.1.png" alt="Sistem Pakar - 1" class="w-full h-full object-contain rounded-xl hover:opacity-95 transition">
                             </div>
-                            <div class="w-full flex-shrink-0 snap-center p-2 flex items-center justify-center">
-                                <img src="assets/1.2.png" alt="SPK Pakan Kucing - Tampilan 2" class="w-full h-full object-contain rounded-lg">
+                            <div class="w-full flex-shrink-0 snap-center p-3 flex items-center justify-center cursor-pointer" onclick="openModal('assets/2.2.png')">
+                                <img src="assets/2.2.png" alt="Sistem Pakar - 2" class="w-full h-full object-contain rounded-xl hover:opacity-95 transition">
                             </div>
-                            <div class="w-full flex-shrink-0 snap-center p-2 flex items-center justify-center">
-                                <img src="assets/1.3.png" alt="SPK Pakan Kucing - Tampilan 3" class="w-full h-full object-contain rounded-lg">
-                            </div>
-                        </div>
-                        <div class="bg-neutral-950/80 px-4 py-2 border-t border-neutral-800 flex justify-between items-center text-xs text-neutral-400">
-                            <span>Pratinjau Antarmuka</span>
-                            <span class="text-accentRed font-medium">Geser Gambar ➔</span>
-                        </div>
-                    </div>
-
-                    <!-- Container Info & Deskripsi (Lebar 5/12 di Desktop) -->
-                    <div class="lg:col-span-5 p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-neutral-800">
-                        <div>
-                            <div class="flex items-center gap-2 mb-3">
-                                <span class="text-xs font-semibold text-accentRed bg-red-500/10 px-3 py-1 rounded-md border border-red-500/20">Sistem Pendukung Keputusan</span>
-                            </div>
-                            <h3 class="text-2xl font-bold text-white mb-3">SPK Penentu Pakan Kucing Tua</h3>
-                            <p class="text-neutral-300 text-sm leading-relaxed mb-4">
-                                Aplikasi berbasis web yang merekomendasikan jenis pakan terbaik untuk kucing senior berdasarkan kondisi kesehatan, usia, dan nutrisi khusus yang dibutuhkan.
-                            </p>
-                            
-                            <!-- Detail Fitur Utama -->
-                            <div class="space-y-2 mb-6">
-                                <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400">Fitur Utama:</h4>
-                                <ul class="text-xs text-neutral-300 space-y-1.5 list-disc list-inside">
-                                    <li>Perhitungan kriteria nutrisi & kondisi kesehatan otomatis</li>
-                                    <li>Peringkat pakan terbaik berdasarkan pembobotan</li>
-                                    <li>Manajemen data pakan dan kriteria oleh admin</li>
-                                </ul>
+                            <div class="w-full flex-shrink-0 snap-center p-3 flex items-center justify-center cursor-pointer" onclick="openModal('assets/2.3.png')">
+                                <img src="assets/2.3.png" alt="Sistem Pakar - 3" class="w-full h-full object-contain rounded-xl hover:opacity-95 transition">
                             </div>
                         </div>
-
-                        <div>
-                            <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">Teknologi:</h4>
-                            <div class="flex wrap gap-2 pt-1 border-t border-neutral-800">
-                            <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">JavaScript</span>
-                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">Tailwind CSS</span>
-                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">MySQL</span>
-                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">PHP</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card Projek 2 -->
-                <div class="bg-cardBg border border-neutral-800 rounded-2xl overflow-hidden shadow-2xl hover:border-neutral-700 transition grid grid-cols-1 lg:grid-cols-12 gap-0">
-                    <div class="lg:col-span-7 relative bg-neutral-900 flex flex-col justify-center">
-                        <div class="flex overflow-x-auto snap-x snap-mandatory custom-scrollbar w-full h-72 md:h-96">
-                            <div class="w-full flex-shrink-0 snap-center p-2 flex items-center justify-center">
-                                <img src="assets/2.1.png" alt="Sistem Pakar - Tampilan 1" class="w-full h-full object-contain rounded-lg">
-                            </div>
-                            <div class="w-full flex-shrink-0 snap-center p-2 flex items-center justify-center">
-                                <img src="assets/2.2.png" alt="Sistem Pakar - Tampilan 2" class="w-full h-full object-contain rounded-lg">
-                            </div>
-                            <div class="w-full flex-shrink-0 snap-center p-2 flex items-center justify-center">
-                                <img src="assets/2.3.png" alt="Sistem Pakar - Tampilan 3" class="w-full h-full object-contain rounded-lg">
-                            </div>
-                        </div>
-                        <div class="bg-neutral-950/80 px-4 py-2 border-t border-neutral-800 flex justify-between items-center text-xs text-neutral-400">
+                        <div class="bg-neutral-950/90 px-5 py-3 border-t border-neutral-800 flex justify-between items-center text-xs text-neutral-400">
                             <span>Pratinjau Antarmuka</span>
                             <span class="text-accentRed font-medium">Geser Gambar ➔</span>
                         </div>
@@ -166,7 +214,7 @@
                             </div>
                             <h3 class="text-2xl font-bold text-white mb-3">Deteksi Gangguan Belajar Anak</h3>
                             <p class="text-neutral-300 text-sm leading-relaxed mb-4">
-                                Sistem pakar cerdas yang dirancang untuk membantu mengidentifikasi indikasi awal gangguan belajar pada anak (seperti disleksia, diskalkulia, atau ADHD) berdasarkan gejala yang diamati.
+                                Sistem pakar cerdas yang dirancang untuk membantu mengidentifikasi indikasi awal gangguan belajar pada anak (seperti disleksia, diskalkulia, atau ADHD) berdasarkan gejala.
                             </p>
                             
                             <div class="space-y-2 mb-6">
@@ -174,38 +222,146 @@
                                 <ul class="text-xs text-neutral-300 space-y-1.5 list-disc list-inside">
                                     <li>Kuesioner diagnosis interaktif berbasis indikator perilaku</li>
                                     <li>Kalkulasi tingkat kepastian/probabilitas hasil diagnosis</li>
-                                    <li>Laporan hasil analisa beserta saran atau rekomendasi penanganan awal</li>
+                                    <li>Laporan hasil analisa beserta saran penanganan awal</li>
                                 </ul>
                             </div>
                         </div>
 
                         <div>
                             <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">Teknologi:</h4>
-                            <div class="flex wrap gap-2 pt-1 border-t border-neutral-800">
-                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">JavaScript</span>
-                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">Tailwind CSS</span>
-                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">PHP</span>
-                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">MySQL</span>
+                            <div class="flex flex-wrap gap-2 pt-2 border-t border-neutral-800">
+                                <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-300 px-3 py-1 rounded-md">JavaScript</span>
+                                <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-300 px-3 py-1 rounded-md">Bootstrap</span>
+                                <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-300 px-3 py-1 rounded-md">PHP</span>
+                                <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-300 px-3 py-1 rounded-md">MySQL</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card Projek 3 -->
-                <div class="bg-cardBg border border-neutral-800 rounded-2xl overflow-hidden shadow-2xl hover:border-neutral-700 transition grid grid-cols-1 lg:grid-cols-12 gap-0">
+                <!-- Card Projek 1 (SPK) -->
+                <div class="project-card bg-cardBg border border-neutral-800 rounded-3xl overflow-hidden shadow-2xl hover:border-neutral-700 transition grid grid-cols-1 lg:grid-cols-12 gap-0" data-category="spk">
                     <div class="lg:col-span-7 relative bg-neutral-900 flex flex-col justify-center">
-                        <div class="flex overflow-x-auto snap-x snap-mandatory custom-scrollbar w-full h-72 md:h-96">
-                            <div class="w-full flex-shrink-0 snap-center p-2 flex items-center justify-center">
-                                <img src="assets/3.1.png" alt="SPK Bantuan Posyandu - Tampilan 1" class="w-full h-full object-contain rounded-lg">
+                        <div class="flex overflow-x-auto snap-x snap-mandatory custom-scrollbar w-full h-72 md:h-96" id="slider-1">
+                            <div class="w-full flex-shrink-0 snap-center p-3 flex items-center justify-center cursor-pointer" onclick="openModal('assets/1.1.png')">
+                                <img src="assets/1.1.png" alt="SPK Pakan Kucing - 1" class="w-full h-full object-contain rounded-xl hover:opacity-95 transition">
                             </div>
-                            <div class="w-full flex-shrink-0 snap-center p-2 flex items-center justify-center">
-                                <img src="assets/3.2.png" alt="SPK Bantuan Posyandu - Tampilan 2" class="w-full h-full object-contain rounded-lg">
+                            <div class="w-full flex-shrink-0 snap-center p-3 flex items-center justify-center cursor-pointer" onclick="openModal('assets/1.2.png')">
+                                <img src="assets/1.2.png" alt="SPK Pakan Kucing - 2" class="w-full h-full object-contain rounded-xl hover:opacity-95 transition">
                             </div>
-                            <div class="w-full flex-shrink-0 snap-center p-2 flex items-center justify-center">
-                                <img src="assets/3.3.png" alt="SPK Bantuan Posyandu - Tampilan 3" class="w-full h-full object-contain rounded-lg">
+                            <div class="w-full flex-shrink-0 snap-center p-3 flex items-center justify-center cursor-pointer" onclick="openModal('assets/1.3.png')">
+                                <img src="assets/1.3.png" alt="SPK Pakan Kucing - 3" class="w-full h-full object-contain rounded-xl hover:opacity-95 transition">
                             </div>
                         </div>
-                        <div class="bg-neutral-950/80 px-4 py-2 border-t border-neutral-800 flex justify-between items-center text-xs text-neutral-400">
+                        <div class="bg-neutral-950/90 px-5 py-3 border-t border-neutral-800 flex justify-between items-center text-xs text-neutral-400">
+                            <span class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-accentRed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg> Klik gambar untuk memperbesar</span>
+                            <span class="text-accentRed font-medium">Geser Gambar ➔</span>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-neutral-800">
+                        <div>
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-xs font-semibold text-accentRed bg-red-500/10 px-3 py-1 rounded-md border border-red-500/20">Sistem Pendukung Keputusan</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-3">SPK Penentu Pakan Kucing Tua</h3>
+                            <p class="text-neutral-300 text-sm leading-relaxed mb-4">
+                                Aplikasi berbasis web yang merekomendasikan jenis pakan terbaik untuk kucing senior berdasarkan kondisi kesehatan, usia, dan nutrisi khusus yang dibutuhkan.
+                            </p>
+                            
+                            <div class="space-y-2 mb-6">
+                                <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400">Fitur Utama:</h4>
+                                <ul class="text-xs text-neutral-300 space-y-1.5 list-disc list-inside">
+                                    <li>Perhitungan kriteria nutrisi & kondisi kesehatan otomatis</li>
+                                    <li>Peringkat pakan terbaik berdasarkan pembobotan</li>
+                                    <li>Manajemen data pakan dan kriteria oleh admin</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">Teknologi:</h4>
+                            <div class="flex flex-wrap gap-2 pt-2 border-t border-neutral-800">
+                                <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-300 px-3 py-1 rounded-md">JavaScript</span>
+                                <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-300 px-3 py-1 rounded-md">Bootstrap</span>
+                                <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-300 px-3 py-1 rounded-md">MySQL</span>
+                                <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-300 px-3 py-1 rounded-md">PHP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card bg-cardBg border border-neutral-800 rounded-3xl overflow-hidden shadow-2xl hover:border-neutral-700 transition grid grid-cols-1 lg:grid-cols-12 gap-0" data-category="spk">
+                    <div class="lg:col-span-7 relative bg-neutral-900 flex flex-col justify-center">
+                        <div class="flex overflow-x-auto snap-x snap-mandatory custom-scrollbar w-full h-72 md:h-96" id="slider-1">
+                            <div class="w-full flex-shrink-0 snap-center p-3 flex items-center justify-center cursor-pointer" onclick="openModal('assets/6.1.png')">
+                                <img src="assets/6.1.png" alt="SPK Posyandu - 1" class="w-full h-full object-contain rounded-xl hover:opacity-95 transition">
+                            </div>
+                            <div class="w-full flex-shrink-0 snap-center p-3 flex items-center justify-center cursor-pointer" onclick="openModal('assets/6.2.png')">
+                                <img src="assets/6.2.png" alt="SPK Posyandu - 2" class="w-full h-full object-contain rounded-xl hover:opacity-95 transition">
+                            </div>
+                            <div class="w-full flex-shrink-0 snap-center p-3 flex items-center justify-center cursor-pointer" onclick="openModal('assets/6.3.png')">
+                                <img src="assets/6.3.png" alt="SPK Posyandu - 3" class="w-full h-full object-contain rounded-xl hover:opacity-95 transition">
+                            </div>
+                            <div class="w-full flex-shrink-0 snap-center p-3 flex items-center justify-center cursor-pointer" onclick="openModal('assets/6.4.png')">
+                                <img src="assets/6.4.png" alt="SPK Posyandu - 4" class="w-full h-full object-contain rounded-xl hover:opacity-95 transition">
+                            </div>
+                            <div class="w-full flex-shrink-0 snap-center p-3 flex items-center justify-center cursor-pointer" onclick="openModal('assets/.5.png')">
+                                <img src="assets/6.5.png" alt="SPK Posyandu - 5" class="w-full h-full object-contain rounded-xl hover:opacity-95 transition">
+                            </div>
+                        </div>
+                        <div class="bg-neutral-950/90 px-5 py-3 border-t border-neutral-800 flex justify-between items-center text-xs text-neutral-400">
+                            <span class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-accentRed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg> Klik gambar untuk memperbesar</span>
+                            <span class="text-accentRed font-medium">Geser Gambar ➔</span>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-neutral-800">
+                        <div>
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-xs font-semibold text-accentRed bg-red-500/10 px-3 py-1 rounded-md border border-red-500/20">Sistem Pendukung Keputusan</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-3">SPK Penyaluran Bantuan Balita Stunting</h3>
+                            <p class="text-neutral-300 text-sm leading-relaxed mb-4">
+                                Sistem Pendukung Keputusan berbasis web menggunakan metode Simple Additive Weighting (SAW) untuk menentukan prioritas penerima bantuan balita stunting secara objektif, efisien, dan tepat sasaran.
+                            </p>
+                            <div class="space-y-2 mb-6">
+                                <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400">Fitur Utama:</h4>
+                                <ul class="text-xs text-neutral-300 space-y-1.5 list-disc list-inside">
+                                    <li>Perhitungan & pemeringkatan penerima bantuan dengan metode SAW</li>
+                                    <li>Pencatatan dan pemantauan perkembangan balita setiap bulan (BB/TB/Usia)</li>
+                                    <li>Manajemen kriteria, bobot penilaian, dan data balita oleh admin/kader</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">Teknologi:</h4>
+                            <div class="flex flex-wrap gap-2 pt-2 border-t border-neutral-800">
+                                <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-300 px-3 py-1 rounded-md">JavaScript</span>
+                                <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-300 px-3 py-1 rounded-md">Bootstrap</span>
+                                <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-300 px-3 py-1 rounded-md">MySQL</span>
+                                <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-300 px-3 py-1 rounded-md">PHP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card Projek 3 (SPK) -->
+                <div class="project-card bg-cardBg border border-neutral-800 rounded-3xl overflow-hidden shadow-2xl hover:border-neutral-700 transition grid grid-cols-1 lg:grid-cols-12 gap-0" data-category="spk">
+                    <div class="lg:col-span-7 relative bg-neutral-900 flex flex-col justify-center">
+                        <div class="flex overflow-x-auto snap-x snap-mandatory custom-scrollbar w-full h-72 md:h-96">
+                            <div class="w-full flex-shrink-0 snap-center p-3 flex items-center justify-center cursor-pointer" onclick="openModal('assets/3.1.png')">
+                                <img src="assets/3.1.png" alt="SPK Posyandu - 1" class="w-full h-full object-contain rounded-xl hover:opacity-95 transition">
+                            </div>
+                            <div class="w-full flex-shrink-0 snap-center p-3 flex items-center justify-center cursor-pointer" onclick="openModal('assets/3.2.png')">
+                                <img src="assets/3.2.png" alt="SPK Posyandu - 2" class="w-full h-full object-contain rounded-xl hover:opacity-95 transition">
+                            </div>
+                            <div class="w-full flex-shrink-0 snap-center p-3 flex items-center justify-center cursor-pointer" onclick="openModal('assets/3.3.png')">
+                                <img src="assets/3.3.png" alt="SPK Posyandu - 3" class="w-full h-full object-contain rounded-xl hover:opacity-95 transition">
+                            </div>
+                        </div>
+                        <div class="bg-neutral-950/90 px-5 py-3 border-t border-neutral-800 flex justify-between items-center text-xs text-neutral-400">
                             <span>Pratinjau Antarmuka</span>
                             <span class="text-accentRed font-medium">Geser Gambar ➔</span>
                         </div>
@@ -218,7 +374,7 @@
                             </div>
                             <h3 class="text-2xl font-bold text-white mb-3">SPK Kelayakan Bantuan Posyandu</h3>
                             <p class="text-neutral-300 text-sm leading-relaxed mb-4">
-                                Aplikasi SPK mengimplementasikan metode SAW (Simple Additive Weighting) untuk menentukan kelayakan dan prioritas penerima bantuan operasional atau insentif Posyandu secara obyektif.
+                                Aplikasi SPK mengimplementasikan metode <span class="text-white font-semibold">SAW (Simple Additive Weighting)</span> untuk menentukan kelayakan dan prioritas penerima bantuan operasional Posyandu secara obyektif.
                             </p>
                             
                             <div class="space-y-2 mb-6">
@@ -233,31 +389,90 @@
 
                         <div>
                             <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">Teknologi:</h4>
-                            <div class="flex wrap gap-2 pt-1 border-t border-neutral-800">
-                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">JavaScript</span>
-                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">Tailwind CSS</span>
-                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">MySQL</span>
-                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">PHP</span>
+                            <div class="flex flex-wrap gap-2 pt-2 border-t border-neutral-800">
+                                <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-300 px-3 py-1 rounded-md">JavaScript</span>
+                                <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-300 px-3 py-1 rounded-md">Bootstrap</span>
+                                <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-300 px-3 py-1 rounded-md">MySQL</span>
+                                <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-300 px-3 py-1 rounded-md">PHP</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card Projek 4 -->
-                <div class="bg-cardBg border border-neutral-800 rounded-2xl overflow-hidden shadow-2xl hover:border-neutral-700 transition grid grid-cols-1 lg:grid-cols-12 gap-0">
+                <!-- Card Projek 4 (Web App / Skripsi) -->
+                <div class="project-card bg-cardBg border border-neutral-800 rounded-3xl overflow-hidden shadow-2xl hover:border-neutral-700 transition grid grid-cols-1 lg:grid-cols-12 gap-0" data-category="webapp">
                     <div class="lg:col-span-7 relative bg-neutral-900 flex flex-col justify-center">
                         <div class="flex overflow-x-auto snap-x snap-mandatory custom-scrollbar w-full h-72 md:h-96">
-                            <div class="w-full flex-shrink-0 snap-center p-2 flex items-center justify-center">
-                                <img src="assets/4.1.png" alt="Monitoring Siswa - Tampilan 1" class="w-full h-full object-contain rounded-lg">
+                            <div class="w-full flex-shrink-0 snap-center p-3 flex items-center justify-center cursor-pointer" onclick="openModal('assets/4.1.png')">
+                                <img src="assets/4.1.png" alt="Monitoring Siswa - 1" class="w-full h-full object-contain rounded-xl hover:opacity-95 transition">
                             </div>
-                            <div class="w-full flex-shrink-0 snap-center p-2 flex items-center justify-center">
-                                <img src="assets/4.2.png" alt="Monitoring Siswa - Tampilan 2" class="w-full h-full object-contain rounded-lg">
+                            <div class="w-full flex-shrink-0 snap-center p-3 flex items-center justify-center cursor-pointer" onclick="openModal('assets/4.2.png')">
+                                <img src="assets/4.2.png" alt="Monitoring Siswa - 2" class="w-full h-full object-contain rounded-xl hover:opacity-95 transition">
                             </div>
-                            <div class="w-full flex-shrink-0 snap-center p-2 flex items-center justify-center">
-                                <img src="assets/4.3.png" alt="Monitoring Siswa - Tampilan 3" class="w-full h-full object-contain rounded-lg">
+                            <div class="w-full flex-shrink-0 snap-center p-3 flex items-center justify-center cursor-pointer" onclick="openModal('assets/4.3.png')">
+                                <img src="assets/4.3.png" alt="Monitoring Siswa - 3" class="w-full h-full object-contain rounded-xl hover:opacity-95 transition">
                             </div>
                         </div>
-                        <div class="bg-neutral-950/80 px-4 py-2 border-t border-neutral-800 flex justify-between items-center text-xs text-neutral-400">
+                        <div class="bg-neutral-950/90 px-5 py-3 border-t border-neutral-800 flex justify-between items-center text-xs text-neutral-400">
+                            <span>Pratinjau Antarmuka</span>
+                            <span class="text-accentRed font-medium">Geser Gambar ➔</span>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-neutral-800">
+                        <div>
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-xs font-semibold text-accentRed bg-red-500/10 px-3 py-1 rounded-md border border-red-500/20">Web Application / Skripsi</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-3">Sistem Informasi Monitoring Siswa</h3>
+                            <p class="text-neutral-300 text-sm leading-relaxed mb-4">
+                                Platform manajemen sekolah untuk memantau rekam kehadiran, perkembangan akademik, hingga catatan kedisiplinan dan perilaku siswa secara real-time.
+                            </p>
+                            
+                            <div class="space-y-2 mb-6">
+                                <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400">Fitur Utama:</h4>
+                                <ul class="text-xs text-neutral-300 space-y-1.5 list-disc list-inside">
+                                    <li>Dashboard analitik perkembangan siswa</li>
+                                    <li>Manajemen rekap presensi dan absensi</li>
+                                    <li>Portal multi-user (Kepsek, Guru, Admin, Orang Tua)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">Teknologi:</h4>
+                            <div class="flex flex-wrap gap-2 pt-2 border-t border-neutral-800">
+                                <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-300 px-3 py-1 rounded-md">JavaScript</span>
+                                <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-300 px-3 py-1 rounded-md">Bootstrap</span>
+                                <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-300 px-3 py-1 rounded-md">PHP</span>
+                                <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-300 px-3 py-1 rounded-md">MySQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card bg-cardBg border border-neutral-800 rounded-3xl overflow-hidden shadow-2xl hover:border-neutral-700 transition grid grid-cols-1 lg:grid-cols-12 gap-0" data-category="webapp">
+                    <div class="lg:col-span-7 relative bg-neutral-900 flex flex-col justify-center">
+                        <div class="flex overflow-x-auto snap-x snap-mandatory custom-scrollbar w-full h-72 md:h-96">
+                            <div class="w-full flex-shrink-0 snap-center p-3 flex items-center justify-center cursor-pointer" onclick="openModal('assets/5.1.png')">
+                                <img src="assets/5.1.png" alt="Profil - 1" class="w-full h-full object-contain rounded-xl hover:opacity-95 transition">
+                            </div>
+                            <div class="w-full flex-shrink-0 snap-center p-3 flex items-center justify-center cursor-pointer" onclick="openModal('assets/5.2.png')">
+                                <img src="assets/5.2.png" alt="Profil - 2" class="w-full h-full object-contain rounded-xl hover:opacity-95 transition">
+                            </div>
+                            <div class="w-full flex-shrink-0 snap-center p-3 flex items-center justify-center cursor-pointer" onclick="openModal('assets/5.3.png')">
+                                <img src="assets/5.3.png" alt="Profil - 3" class="w-full h-full object-contain rounded-xl hover:opacity-95 transition">
+                            </div>
+                            <div class="w-full flex-shrink-0 snap-center p-3 flex items-center justify-center cursor-pointer" onclick="openModal('assets/5.4.png')">
+                                <img src="assets/5.4.png" alt="Profil - 1" class="w-full h-full object-contain rounded-xl hover:opacity-95 transition">
+                            </div>
+                            <div class="w-full flex-shrink-0 snap-center p-3 flex items-center justify-center cursor-pointer" onclick="openModal('assets/5.5.png')">
+                                <img src="assets/5.5.png" alt="Profil - 2" class="w-full h-full object-contain rounded-xl hover:opacity-95 transition">
+                            </div>
+                            <div class="w-full flex-shrink-0 snap-center p-3 flex items-center justify-center cursor-pointer" onclick="openModal('assets/5.6.png')">
+                                <img src="assets/5.5.png" alt="Profil - 3" class="w-full h-full object-contain rounded-xl hover:opacity-95 transition">
+                            </div>
+                        </div>
+                        <div class="bg-neutral-950/90 px-5 py-3 border-t border-neutral-800 flex justify-between items-center text-xs text-neutral-400">
                             <span>Pratinjau Antarmuka</span>
                             <span class="text-accentRed font-medium">Geser Gambar ➔</span>
                         </div>
@@ -268,36 +483,195 @@
                             <div class="flex items-center gap-2 mb-3">
                                 <span class="text-xs font-semibold text-accentRed bg-red-500/10 px-3 py-1 rounded-md border border-red-500/20">Web Application</span>
                             </div>
-                            <h3 class="text-2xl font-bold text-white mb-3">Sistem Informasi Monitoring Siswa</h3>
+                            <h3 class="text-2xl font-bold text-white mb-3">Sistem Absensi</h3>
                             <p class="text-neutral-300 text-sm leading-relaxed mb-4">
-                                Platform manajemen sekolah untuk memantau rekam kehadiran, perkembangan akademik maupun non akademik, hingga catatan kedisiplinan dan perilaku siswa disekolah secara akurat dan real-time.
-                            </p>
-                            
+                                Sistem manajemen kehadiran karyawan berbasis web yang dilengkapi verifikasi wajah menggunakan kamera, pencatatan waktu dan lokasi secara real-time, serta pengelolaan absen masuk dan pulang yang akurat.
+                                </p>
                             <div class="space-y-2 mb-6">
                                 <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400">Fitur Utama:</h4>
                                 <ul class="text-xs text-neutral-300 space-y-1.5 list-disc list-inside">
-                                    <li>Dashboard analitik perkembangan siswa</li>
-                                    <li>Manajemen rekap presensi dan absensi</li>
-                                    <li>Portal grup untuk Kepala Sekolah, Guru, Admin, dan Orang Tua</li>
+                                    <li>Verifikasi wajah secara real-time dengan kamera (webcam capture)</li>
+                                    <li>Pencatatan waktu dan titik lokasi presensi secara otomatis</li>
+                                    <li>Manajemen pencatatan absen masuk dan absen pulang harian</li>
+                                    <li>Fitur pengecekan riwayat dan rekapitulasi absensi karyawan</li>
                                 </ul>
                             </div>
                         </div>
 
                         <div>
                             <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">Teknologi:</h4>
-                            <div class="flex wrap gap-2 pt-1 border-t border-neutral-800">
-                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">JavaScript</span>
-                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">Tailwind CSS</span>
-                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">PHP</span>
-                                <span class="text-xs bg-neutral-800 text-neutral-300 px-3 py-1 rounded-md">MySQL</span>
+                            <div class="flex flex-wrap gap-2 pt-2 border-t border-neutral-800">
+                                <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-300 px-3 py-1 rounded-md">JavaScript</span>
+                                <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-300 px-3 py-1 rounded-md">Bootstrap</span>
+                                <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-300 px-3 py-1 rounded-md">PHP</span>
+                                <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-300 px-3 py-1 rounded-md">MySQL</span>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="project-card bg-cardBg border border-neutral-800 rounded-3xl overflow-hidden shadow-2xl hover:border-neutral-700 transition grid grid-cols-1 lg:grid-cols-12 gap-0" data-category="webapp">
+                    <div class="lg:col-span-7 relative bg-neutral-900 flex flex-col justify-center">
+                        <div class="flex overflow-x-auto snap-x snap-mandatory custom-scrollbar w-full h-72 md:h-96">
+                            <div class="w-full flex-shrink-0 snap-center p-3 flex items-center justify-center cursor-pointer" onclick="openModal('assets/7.1.png')">
+                                <img src="assets/7.1.png" alt="Monitoring Siswa - 1" class="w-full h-full object-contain rounded-xl hover:opacity-95 transition">
+                            </div>
+                            <div class="w-full flex-shrink-0 snap-center p-3 flex items-center justify-center cursor-pointer" onclick="openModal('assets/7.2.png')">
+                                <img src="assets/7.2.png" alt="Monitoring Siswa - 2" class="w-full h-full object-contain rounded-xl hover:opacity-95 transition">
+                            </div>
+                            <div class="w-full flex-shrink-0 snap-center p-3 flex items-center justify-center cursor-pointer" onclick="openModal('assets/7.3.png')">
+                                <img src="assets/7.3.png" alt="Monitoring Siswa - 3" class="w-full h-full object-contain rounded-xl hover:opacity-95 transition">
+                            </div>
+                            <div class="w-full flex-shrink-0 snap-center p-3 flex items-center justify-center cursor-pointer" onclick="openModal('assets/7.4.png')">
+                                <img src="assets/7.4.png" alt="Monitoring Siswa - 3" class="w-full h-full object-contain rounded-xl hover:opacity-95 transition">
+                            </div>
+                        </div>
+                        <div class="bg-neutral-950/90 px-5 py-3 border-t border-neutral-800 flex justify-between items-center text-xs text-neutral-400">
+                            <span>Pratinjau Antarmuka</span>
+                            <span class="text-accentRed font-medium">Geser Gambar ➔</span>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 p-8 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-neutral-800">
+                        <div>
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-xs font-semibold text-accentRed bg-red-500/10 px-3 py-1 rounded-md border border-red-500/20">Web Application / Skripsi</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-3">Sistem Pembelajaran tahfidz</h3>
+                            <p class="text-neutral-300 text-sm leading-relaxed mb-4">
+                                Platform pembelajaran Tahfidz Al-Qur'an interaktif berbasis Google Sites yang terintegrasi dengan sumber bacaan surat dari equran.id, media video pembelajaran YouTube, serta kuis edukatif menggunakan Wordwall.
+                            </p>
+                            
+                            <div class="space-y-2 mb-6">
+                                <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400">Fitur Utama:</h4>
+                                <ul class="text-xs text-neutral-300 space-y-1.5 list-disc list-inside">
+                                    <li>Akses data surat dan ayat Al-Qur'an terintegrasi via equran.id</li>
+                                    <li>Integrasi video pembelajaran dan panduan setoran hafalan dari YouTube</li>
+                                    <li>Kuis dan game interaktif penunjang evaluasi hafalan menggunakan Wordwall</li>
+                                    <li>Kemudahan akses, navigasi, dan pengelolaan materi berbasis Google Sites</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">Teknologi:</h4>
+                            <div class="flex flex-wrap gap-2 pt-2 border-t border-neutral-800">
+                                <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-300 px-3 py-1 rounded-md">Google Sites</span>
+                            <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-300 px-3 py-1 rounded-md">Equran.id API</span>
+                            <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-300 px-3 py-1 rounded-md">Wordwall</span>
+                            <span class="text-xs bg-neutral-900 border border-neutral-800 text-neutral-300 px-3 py-1 rounded-md">YouTube Embed</span>
+                        </div>
+    
+                    </div>
+                </div>
+               
 
             </div>
         </div>
     </section>
 
+    <!-- Experience & Education Section -->
+    <section id="experience" class="py-24 bg-neutral-900/40 border-t border-neutral-900 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-xs font-semibold uppercase tracking-wider text-accentRed">Jejak Akademik & Profesional</span>
+                <h2 class="text-3xl font-bold tracking-tight mt-1">Pendidikan & Pengalaman</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Pendidikan -->
+                <div class="bg-cardBg border border-neutral-800 p-8 rounded-3xl relative">
+                    <div class="absolute -top-3 left-8 bg-accentRed text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Pendidikan</div>
+                    <h3 class="text-xl font-bold text-white mt-2">S1 Sistem Informasi</h3>
+                    <p class="text-accentRed text-sm font-medium">STIMIK Tunas Bangsa Banjarnegara</p>
+                    <p class="text-neutral-400 text-xs mt-1">Lulus 2025 • IPK 3.71 / 4.00</p>
+                    <p class="text-neutral-300 text-xs mt-4 leading-relaxed">
+                        Menyelesaikan skripsi sistem informasi monitoring berbasis web dan aktif dalam organisasi mahasiswa serta pengembangan sistem berbasis web.
+                    </p>
+                </div>
+                <!-- Publikasi & Kerja -->
+                <div class="bg-cardBg border border-neutral-800 p-8 rounded-3xl relative">
+                    <div class="absolute -top-3 left-8 bg-accentRed text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Publikasi & Karya</div>
+                    <h3 class="text-xl font-bold text-white mt-2">Publikasi Jurnal & Freelance</h3>
+                    <p class="text-accentRed text-sm font-medium">Smart Comp & Klien Web</p>
+                    <p class="text-neutral-400 text-xs mt-1">2025 - Sekarang</p>
+                    <p class="text-neutral-300 text-xs mt-4 leading-relaxed">
+                        Penulis jurnal ilmiah sistem informasi pembayaran SPP di Smart Comp serta berpengalaman sebagai freelance web developer.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Footer -->
+    <footer id="contact" class="py-20 bg-neutral-950 border-t border-neutral-900 px-6 text-center">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold text-white tracking-tight">Mari Berkolaborasi!</h2>
+            <p class="text-neutral-400 text-sm mt-3 mb-8">Punya projek web, sistem informasi, atau kolaborasi menarik? Jangan ragu untuk menghubungi saya.</p>
+            <div class="flex justify-center gap-4 mb-12">
+                <a href="mailto:okta.nurmansyah05@gmail.com" class="bg-neutral-900 border border-neutral-800 hover:border-accentRed text-neutral-200 px-6 py-3 rounded-xl text-sm font-medium transition flex items-center gap-2">
+                    <span>📧</span> Email Saya
+                </a>
+                <a href="https://wa.me/6283127592890" target="_blank" class="bg-accentRed text-white hover:bg-accentRedHover px-6 py-3 rounded-xl text-sm font-medium transition flex items-center gap-2 shadow-lg shadow-red-600/20">
+                    <span>💬</span> WhatsApp
+                </a>
+            </div>
+            <p class="text-neutral-500 text-xs">© 2026 Okta Dwi Nurmansyah. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal for Images -->
+    <div id="imageModal" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4 cursor-pointer" onclick="closeModal()">
+        <div class="relative max-w-5xl w-full max-h-[90vh] flex items-center justify-center">
+            <button class="absolute -top-10 right-0 text-white text-3xl font-bold hover:text-accentRed transition">&times;</button>
+            <img id="modalImg" src="" alt="Pratinjau Besar" class="max-w-full max-h-[85vh] object-contain rounded-2xl border border-neutral-800 shadow-2xl">
+        </div>
+    </div>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Project Filter Function
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-accentRed', 'text-white');
+                btn.classList.add('bg-neutral-900', 'text-neutral-300');
+            });
+            event.target.classList.remove('bg-neutral-900', 'text-neutral-300');
+            event.target.classList.add('bg-accentRed', 'text-white');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'grid';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Lightbox Modal Functions
+        function openModal(imgSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImg');
+            modalImg.src = imgSrc;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+    </script>
 </body>
 </html>
